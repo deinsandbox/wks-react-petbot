@@ -1,0 +1,24 @@
+import React from "react";
+import Lottie from "react-lottie";
+import "./Cat.css";
+import AnimationCat from "./cat-data.json";
+
+const Cat = ({ history }) => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: AnimationCat,
+  };
+
+  const handleOnClick = () => {
+    history.push("/chat");
+  };
+
+  return (
+    <div onClick={handleOnClick} className="cat-container">
+      <Lottie options={defaultOptions} />
+    </div>
+  );
+};
+
+export default Cat;

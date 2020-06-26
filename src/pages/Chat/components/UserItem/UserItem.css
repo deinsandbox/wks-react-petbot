@@ -1,0 +1,32 @@
+.user-item-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 5px 10px 0;
+  align-items: center;
+}
+
+.user-item-message {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 10px 0;
+}
+
+.user-item-message span {
+  font-size: 14px;
+  color: #fff;
+  background: #8bcce0;
+  border-radius: 5px;
+  width: fit-content;
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 1px 10px;
+}
+
+.user-item-container img {
+  display: flex;
+  align-self: start;
+  height: 50px;
+}
