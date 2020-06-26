@@ -1,3 +1,9 @@
+# React Workshop
+
+Petbot made with react, following a Workshop from [ReactCBA](https://www.youtube.com/channel/UCp75IH4i6xRpgVI5iAUxoOQ)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
