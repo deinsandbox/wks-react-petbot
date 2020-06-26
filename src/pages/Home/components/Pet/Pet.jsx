@@ -1,13 +1,14 @@
 import React from "react";
-import Lottie from "react-lottie";
-import "./Cat.css";
-import AnimationCat from "./cat-data.json";
+import "./Pet.css";
 
-const Cat = ({ history }) => {
+import Lottie from "react-lottie";
+import { asyncRandomPet } from "../../../../data/petImages";
+
+const Pet = ({ history, image }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: AnimationCat,
+    animationData: asyncRandomPet(),
   };
 
   const handleOnClick = () => {
@@ -21,4 +22,4 @@ const Cat = ({ history }) => {
   );
 };
 
-export default Cat;
+export default Pet;

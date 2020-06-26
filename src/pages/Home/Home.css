@@ -1,5 +1,12 @@
 :root {
-  --label-color: #ebe8d9;
+  --main-title-text: rgb(196, 82, 32);
+  --main-title-shadow: rgb(240, 240, 240);
+
+  --main-description-text: rgb(237, 123, 67);
+  --main-description-shadow: rgb(240, 240, 240);
+
+  --main-avatar-background: rgb(240, 240, 240);
+  --main-avatar-border: rgb(196, 82, 32);
 }
 
 .home-petbot-container {
@@ -13,7 +20,6 @@
 
 .home-petbot-content {
   width: 85%;
-  height: 100%;
   position: absolute;
   margin: auto;
 }
@@ -21,13 +27,67 @@
 .home-petbot-greeting {
   width: 100%;
   height: auto;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: var(--label-color);
+}
+
+.home-petbot-greeting h1 {
+  color: var(--main-title-text);
+
+  text-shadow: 1px 1px 0 var(--main-title-shadow),
+    -1px 1px 0 var(--main-title-shadow), 1px -1px 0 var(--main-title-shadow),
+    -1px -1px 0 var(--main-title-shadow), 0px 1px 0 var(--main-title-shadow),
+    0px -1px 0 var(--main-title-shadow), -1px 0px 0 var(--main-title-shadow),
+    1px 0px 0 var(--main-title-shadow), 2px 2px 0 var(--main-title-shadow),
+    -2px 2px 0 var(--main-title-shadow), 2px -2px 0 var(--main-title-shadow),
+    -2px -2px 0 var(--main-title-shadow), 0px 2px 0 var(--main-title-shadow),
+    0px -2px 0 var(--main-title-shadow), -2px 0px 0 var(--main-title-shadow),
+    2px 0px 0 var(--main-title-shadow), 1px 2px 0 var(--main-title-shadow),
+    -1px 2px 0 var(--main-title-shadow), 1px -2px 0 var(--main-title-shadow),
+    -1px -2px 0 var(--main-title-shadow), 2px 1px 0 var(--main-title-shadow),
+    -2px 1px 0 var(--main-title-shadow), 2px -1px 0 var(--main-title-shadow),
+    -2px -1px 0 var(--main-title-shadow);
+}
+
+.home-petbot-image {
+  background-color: var(--main-avatar-background);
+  border: 5px solid var(--main-avatar-border);
+  border-radius: 50%;
+  padding: 5%;
+  margin: 20px 0 40px;
 }
 
 .home-petbot-greeting span {
   margin-bottom: 10px;
+  color: var(--main-description-text);
+  font-size: 1.2em;
+  font-weight: bold;
+
+  text-shadow: 1px 1px 0 var(--main-description-shadow),
+    -1px 1px 0 var(--main-description-shadow),
+    1px -1px 0 var(--main-description-shadow),
+    -1px -1px 0 var(--main-description-shadow),
+    0px 1px 0 var(--main-description-shadow),
+    0px -1px 0 var(--main-description-shadow),
+    -1px 0px 0 var(--main-description-shadow),
+    1px 0px 0 var(--main-description-shadow),
+    2px 2px 0 var(--main-description-shadow),
+    -2px 2px 0 var(--main-description-shadow),
+    2px -2px 0 var(--main-description-shadow),
+    -2px -2px 0 var(--main-description-shadow),
+    0px 2px 0 var(--main-description-shadow),
+    0px -2px 0 var(--main-description-shadow),
+    -2px 0px 0 var(--main-description-shadow),
+    2px 0px 0 var(--main-description-shadow),
+    1px 2px 0 var(--main-description-shadow),
+    -1px 2px 0 var(--main-description-shadow),
+    1px -2px 0 var(--main-description-shadow),
+    -1px -2px 0 var(--main-description-shadow),
+    2px 1px 0 var(--main-description-shadow),
+    -2px 1px 0 var(--main-description-shadow),
+    2px -1px 0 var(--main-description-shadow),
+    -2px -1px 0 var(--main-description-shadow);
 }

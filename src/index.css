@@ -1,7 +1,7 @@
 :root {
-  --background-fallback: #2c3e50;
-  --background-gradient-start: #4ca1af;
-  --background-gradient-end: #2c3e50;
+  --background-fallback: rgb(134, 223, 222);
+  --background-gradient-start: rgb(3, 133, 138);
+  --background-gradient-end: rgb(134, 223, 222);
 }
 
 body {
@@ -14,12 +14,12 @@ body {
 
   background: var(--background-fallback); /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to right,
+    to bottom,
     var(--background-gradient-start),
     var(--background-gradient-end)
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
+    to bottom,
     var(--background-gradient-start),
     var(--background-gradient-end)
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */

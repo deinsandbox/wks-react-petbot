@@ -1,3 +1,13 @@
+:root {
+  --input-chat-background: rgb(3, 133, 138);
+  --input-chat-border: rgb(4, 103, 103);
+  --input-chat-text: rgb(240, 240, 240);
+  --input-chat-placeholder: rgb(134, 223, 232);
+
+  --button-chat-background: rgb(3, 133, 138);
+  --button-chat-border: rgb(4, 103, 103);
+}
+
 .chatbot-chat-input-container {
   width: 100%;
   display: flex;
@@ -7,9 +17,9 @@
 
 .chatbot-chat-input-container input {
   width: 80%;
-  border: 1px solid #b7c4e9;
-  color: #432b51;
-  background: #d4dcf2;
+  border: 1px solid var(--input-chat-border);
+  color: var(--input-chat-text);
+  background: var(--input-chat-background);
   height: 35px;
   font-family: inherit;
   font-weight: bold;
@@ -21,7 +31,7 @@
 }
 
 .chatbot-chat-input-container input::placeholder {
-  color: #a1b2e4;
+  color: var(--input-chat-placeholder);
   font-weight: normal;
 }
 
@@ -29,8 +39,8 @@
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 1px solid #432b51;
-  background: #432b51;
+  border: 1px solid var(--button-chat-border);
+  background: var(--button-chat-background);
   background-image: url("../../../../assets/images/arrow-icon.png");
   background-size: 16px;
   background-repeat: no-repeat;

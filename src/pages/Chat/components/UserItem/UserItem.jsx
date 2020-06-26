@@ -1,9 +1,16 @@
 import React from "react";
 import "./UserItem.css";
 
-import UserAvatar from "../../../../assets/images/user-avatar.png";
+import Lottie from "react-lottie";
+import UserAvatar from "../../../../assets/images/avatar/22807-people-morph-flow.json";
 
 const UserItem = ({ text }) => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: UserAvatar,
+  };
+
   return (
     <div className="user-item-container">
       <div className="user-item-message">
@@ -11,7 +18,9 @@ const UserItem = ({ text }) => {
           return <span key={index}> {msg} </span>;
         })}
       </div>
-      <img src={UserAvatar} alt="user avatar" />
+      <div className="user-item-avatar">
+        <Lottie options={defaultOptions} />
+      </div>
     </div>
   );
 };

@@ -11,13 +11,13 @@ const Chat = ({ history }) => {
   const [chat, setChat] = useState([
     {
       id: 0,
-      emitter: "cat",
-      text: ["¡Hola!", "¿Cómo es tu nombre?"],
+      emitter: "pet",
+      text: ["My name is Jooey. What's your name?"],
     },
     {
       id: 1,
       emitter: "user",
-      text: ["Camilo", "Conocido como Equiman"],
+      text: ["Welcome Martian", "Mi name is Camilo but just call me Equiman"],
     },
   ]);
 
@@ -27,7 +27,7 @@ const Chat = ({ history }) => {
         <div className="chatbot-chat">
           <div className="chatbot-chat-container-body">
             {chat.map((message, index) => {
-              if (message.emitter === "cat") {
+              if (message.emitter === "pet") {
                 return <PetItem key={index} text={message.text} />;
               } else {
                 return <UserItem key={index} text={message.text} />;

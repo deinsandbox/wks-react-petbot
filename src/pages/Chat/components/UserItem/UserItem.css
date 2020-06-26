@@ -1,3 +1,9 @@
+:root {
+  --user-avatar-border: rgb(255, 206, 83);
+  --user-chat-background: rgb(255, 206, 83);
+  --user-chat-text: rgb(8, 8, 8);
+}
+
 .user-item-container {
   display: flex;
   justify-content: flex-end;
@@ -9,24 +15,30 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   margin: 0 0 10px 0;
 }
 
 .user-item-message span {
   font-size: 14px;
-  color: #fff;
-  background: #8bcce0;
+  color: var(--user-chat-text);
+  background: var(--user-chat-background);
   border-radius: 5px;
   width: fit-content;
-  font-weight: bold;
   box-sizing: border-box;
   padding: 10px;
   margin: 1px 10px;
 }
 
-.user-item-container img {
+.user-item-avatar {
   display: flex;
   align-self: start;
-  height: 50px;
+
+  border: 2px solid var(--user-avatar-border);
+  padding: 1%;
+  border-radius: 50%;
+  width: 75px;
+  height: 60px;
+
+  box-sizing: border-box;
 }

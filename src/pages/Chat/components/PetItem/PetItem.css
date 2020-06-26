@@ -1,13 +1,26 @@
+:root {
+  --pet-avatar-border: rgb(237, 123, 67);
+  --pet-chat-background: rgb(237, 123, 67);
+  --pet-chat-text: rgb(240, 240, 240);
+}
+
 .pet-item-container {
   display: flex;
   width: auto;
   align-items: center;
 }
 
-.pet-item-container img {
+.pet-item-avatar {
   display: flex;
   align-self: start;
-  height: 50px;
+
+  border: 2px solid var(--pet-avatar-border);
+  padding: 1%;
+  border-radius: 50%;
+  width: 70px;
+  height: 60px;
+
+  box-sizing: border-box;
 }
 
 .pet-item-message {
@@ -21,11 +34,10 @@
 .pet-item-message span {
   margin: 1px 10px;
   font-size: 14px;
-  color: #fff;
-  background: #432b51;
+  color: var(--pet-chat-text);
+  background: var(--pet-chat-background);
   padding: 10px;
   border-radius: 5px;
   width: fit-content;
-  font-weight: bold;
   box-sizing: border-box;
 }

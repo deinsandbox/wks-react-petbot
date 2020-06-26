@@ -1,20 +1,23 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
-import Cat from "./components/Cat/Cat.jsx";
+import Pet from "./components/Pet/Pet.jsx";
 import "./Home.css";
 
 const Home = ({ history }) => {
   return (
     <div className="home-petbot-container">
       <div className="home-petbot-content">
-        <Cat history={history} />
         <div className="home-petbot-greeting">
           <Fade opposite>
-            <h1>¡Hola Humano!</h1>
+            <h1> Hello Human! </h1>
           </Fade>
+
+          <div className="home-petbot-image">
+            <Pet history={history} />
+          </div>
+
           <Fade opposite>
-            <span>¿Querés charlar?</span>
-            <span>Clic para comenzar</span>
+            <span> We come in peace</span> <span> Wanna talk with me? </span>
           </Fade>
         </div>
       </div>
