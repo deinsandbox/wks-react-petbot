@@ -39,6 +39,7 @@ export const petImages = {
 };
 
 export const asyncRandomPet = () => {
-  var keys = Object.keys(petImages);
-  return petImages[keys[(keys.length * Math.random()) << 0]];
+  const keys = Object.keys(petImages);
+  const randomKey = (keys.length * Math.random()) << 0;
+  return petImages[keys[randomKey]];
 };
