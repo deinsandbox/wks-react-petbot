@@ -6,8 +6,8 @@ import UserAvatar from "../../../../assets/images/avatar/22807-people-morph-flow
 
 const UserItem = ({ text }) => {
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
+    loop: false,
+    autoplay: false,
     animationData: UserAvatar,
   };
 
