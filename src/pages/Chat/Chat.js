@@ -38,6 +38,17 @@ const Chat = ({ history }) => {
       text: ["I'm from another Galaxy far far away"],
       reaction: petImages.RollingEyes,
     },
+    {
+      id: 3,
+      emitter: "user",
+      text: ["Oh come on", "Are you from mars? Right?"],
+    },
+    {
+      id: 2,
+      emitter: "pet",
+      text: ["That's my home"],
+      reaction: petImages.Love,
+    },
   ]);
 
   return (
