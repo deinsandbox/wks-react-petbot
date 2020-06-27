@@ -1,9 +1,10 @@
 # React Workshop
 
 Petbot for Mobile made with React.
+
 Workshop from [ReactCBA](https://www.youtube.com/channel/UCp75IH4i6xRpgVI5iAUxoOQ)
 
-[Vercel](react-petbot.equiman.vercel.app)
+See Online: [Vercel](react-petbot.equiman.vercel.app)
 
 ---
 
