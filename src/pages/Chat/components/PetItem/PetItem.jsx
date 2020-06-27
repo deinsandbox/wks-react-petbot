@@ -3,13 +3,11 @@ import "./PetItem.css";
 
 import Lottie from "react-lottie";
 
-import { petImages } from "../../../../data/petImages";
-
-const PetItem = ({ text }) => {
+const PetItem = ({ text, reaction }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: petImages.Talking,
+    animationData: reaction,
   };
 
   return (

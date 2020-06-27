@@ -2,6 +2,8 @@
   --user-avatar-border: rgb(255, 206, 83);
   --user-chat-background: rgb(255, 206, 83);
   --user-chat-text: rgb(8, 8, 8);
+
+  --user-speech-size: 10px;
 }
 
 .user-item-container {
@@ -16,10 +18,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: 0 0 10px 0;
+  margin: 0 0 2px 0;
 }
 
 .user-item-message span {
+  position: relative;
   font-size: 14px;
   color: var(--user-chat-text);
   background: var(--user-chat-background);
@@ -28,13 +31,29 @@
   box-sizing: border-box;
   padding: 10px;
   margin: 1px 10px;
+  font-weight: bold;
+}
+
+.user-item-message span:first-of-type:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: auto;
+  right: calc(var(--user-speech-size) * -1);
+  top: calc(var(--user-speech-size) * 2);
+  bottom: auto;
+  border-left: var(--user-speech-size) solid transparent;
+  border-right: var(--user-speech-size) solid transparent;
+  border-top: var(--user-speech-size) solid var(--user-chat-background);
+  clear: both;
 }
 
 .user-item-avatar {
   display: flex;
   align-self: start;
 
-  border: 2px solid var(--user-avatar-border);
+  border: 3px solid var(--user-avatar-border);
   padding: 1%;
   border-radius: 50%;
   width: 75px;

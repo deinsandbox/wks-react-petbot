@@ -1,6 +1,8 @@
 import React, { UseState, useState } from "react";
 import "./Chat.css";
 
+import { petImages } from "../../data/petImages";
+
 import PetItem from "./components/PetItem/PetItem.jsx";
 import UserItem from "./components/UserItem/UserItem.jsx";
 import InputChat from "./components/InputChat/InputChat.jsx";
@@ -12,12 +14,29 @@ const Chat = ({ history }) => {
     {
       id: 0,
       emitter: "pet",
-      text: ["My name is Jooey. What's your name?"],
+      text: ["My name is Jooey", "What's your name?"],
     },
     {
       id: 1,
       emitter: "user",
-      text: ["Welcome Martian", "Mi name is Camilo but just call me Equiman"],
+      text: ["Welcome to earth", "My name is Camilo but just call me Equiman"],
+    },
+    {
+      id: 2,
+      emitter: "pet",
+      text: ["Glad to meet you!"],
+      reaction: petImages.Rocking,
+    },
+    {
+      id: 3,
+      emitter: "user",
+      text: ["Where are you from?"],
+    },
+    {
+      id: 2,
+      emitter: "pet",
+      text: ["I'm from another Galaxy far far away"],
+      reaction: petImages.RollingEyes,
     },
   ]);
 
@@ -28,7 +47,13 @@ const Chat = ({ history }) => {
           <div className="chatbot-chat-container-body">
             {chat.map((message, index) => {
               if (message.emitter === "pet") {
-                return <PetItem key={index} text={message.text} />;
+                return (
+                  <PetItem
+                    key={index}
+                    text={message.text}
+                    reaction={message.reaction ?? petImages.Talking}
+                  />
+                );
               } else {
                 return <UserItem key={index} text={message.text} />;
               }

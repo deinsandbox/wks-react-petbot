@@ -9,6 +9,11 @@
   --main-avatar-border: rgb(237, 123, 67);
 }
 
+@font-face {
+  font-family: "Gugi";
+  src: url("../../assets/fonts/Gugi-Regular.ttf");
+}
+
 .home-petbot-container {
   width: 100%;
   height: 100vh;
@@ -36,6 +41,7 @@
 
 .home-petbot-greeting h1 {
   color: var(--main-title-text);
+  font-family: "Gugi";
   font-weight: bold;
 
   text-shadow: 1px 1px 0 var(--main-title-shadow),
@@ -65,6 +71,7 @@
   margin-bottom: 10px;
   color: var(--main-description-text);
   font-size: 1.2em;
+  font-family: "Gugi";
   font-weight: bold;
 
   text-shadow: 1px 1px 0 var(--main-description-shadow),

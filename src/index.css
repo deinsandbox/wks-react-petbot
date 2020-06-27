@@ -32,5 +32,5 @@ code {
 
 @font-face {
   font-family: "Quicksand";
-  src: "./assets/fonts/Quicksand-VariableFont_wght.ttf";
+  src: url("./assets/fonts/Quicksand-VariableFont_wght.ttf");
 }
