@@ -1,12 +1,12 @@
 :root {
   --main-title-text: rgb(196, 82, 32);
-  --main-title-shadow: rgb(240, 240, 240);
+  --main-title-shadow: rgba(240, 240, 240, 0.25);
 
-  --main-description-text: rgb(237, 123, 67);
-  --main-description-shadow: rgb(240, 240, 240);
+  --main-description-text: rgb(196, 82, 32);
+  --main-description-shadow: rgba(240, 240, 240, 0.25);
 
   --main-avatar-background: rgb(240, 240, 240);
-  --main-avatar-border: rgb(196, 82, 32);
+  --main-avatar-border: rgb(237, 123, 67);
 }
 
 .home-petbot-container {
@@ -36,6 +36,7 @@
 
 .home-petbot-greeting h1 {
   color: var(--main-title-text);
+  font-weight: bold;
 
   text-shadow: 1px 1px 0 var(--main-title-shadow),
     -1px 1px 0 var(--main-title-shadow), 1px -1px 0 var(--main-title-shadow),
