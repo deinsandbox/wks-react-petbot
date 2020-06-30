@@ -66,6 +66,8 @@ const Chat = ({ history }) => {
     const BYE_TIMER_IN_SECONDS = 5;
 
     if (byeChat) {
+      setOpenSelect(false);
+
       setChat([...chat, question, byeChat]);
       setMessage({ ...message, text: [""] });
 

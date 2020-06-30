@@ -1,33 +1,32 @@
 :root {
-  --input-chat-background: rgb(3, 133, 138);
-  --input-chat-border: rgb(4, 103, 103);
-  --input-chat-text: rgb(240, 240, 240);
-  --input-chat-placeholder: rgb(134, 223, 232);
-
   --button-chat-background: rgb(3, 133, 138);
   --button-chat-border: rgb(4, 103, 103);
+  --input-chat-background: rgb(3, 133, 138);
+  --input-chat-border: rgb(4, 103, 103);
+  --input-chat-placeholder: rgb(134, 223, 232);
+  --input-chat-text: rgb(240, 240, 240);
 }
 
 .chatbot-chat-input-container {
-  width: 100%;
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
 }
 
 .chatbot-chat-input-container input {
-  width: 80%;
-  border: 1px solid var(--input-chat-border);
-  color: var(--input-chat-text);
   background: var(--input-chat-background);
-  height: 35px;
-  font-family: inherit;
-  font-weight: bold;
-  padding-left: 20px;
-  box-sizing: border-box;
   border-radius: 25px;
-  outline: none;
+  border: 1px solid var(--input-chat-border);
+  box-sizing: border-box;
+  color: var(--input-chat-text);
+  font-family: inherit;
   font-size: 14px;
+  font-weight: bold;
+  height: 35px;
+  outline: none;
+  padding-left: 20px;
+  width: 80%;
 }
 
 .chatbot-chat-input-container input::placeholder {
@@ -36,14 +35,14 @@
 }
 
 .chatbot-chat-input-container button {
-  width: 35px;
-  height: 35px;
+  background-image: url("../../../../assets/images/arrow-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background: var(--button-chat-background);
   border-radius: 50%;
   border: 1px solid var(--button-chat-border);
-  background: var(--button-chat-background);
-  background-image: url("../../../../assets/images/arrow-icon.png");
-  background-size: 16px;
-  background-repeat: no-repeat;
-  background-position: center;
   box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.16);
+  height: 35px;
+  width: 35px;
 }

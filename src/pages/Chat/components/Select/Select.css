@@ -1,33 +1,33 @@
 :root {
+  --selector-option-background-hover: rgb(3, 133, 138);
+  --selector-option-background-text: rgb(240, 240, 240);
   --selector-option-background: rgb(134, 223, 222);
   --selector-option-border: rgb(3, 133, 138);
   --selector-option-text: rgb(8, 8, 8);
-
-  --selector-option-background-hover: rgb(3, 133, 138);
-  --selector-option-background-text: rgb(240, 240, 240);
 }
 
 .selector-content {
-  width: 80%;
-  margin: 10px 0 10px;
-  padding-top: 5px;
   background-color: var(--selector-option-background);
   border-radius: 5px;
+  margin: 10px 0 10px;
+  padding-top: 5px;
+  width: 80%;
 }
 
 .selector-container {
-  width: 100%;
-  height: auto;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  height: auto;
+  width: 100%;
 }
 
 .selector-container span {
-  border: 2px solid var(--selector-option-border);
   border-radius: 5px;
+  border: 2px solid var(--selector-option-border);
   box-sizing: border-box;
   color: var(--selector-option-text);
+  cursor: pointer;
   display: block;
   font-size: 14px;
   font-weight: bold;
@@ -35,7 +35,6 @@
   padding: 1px 5px;
   position: relative;
   width: 95%;
-  cursor: pointer;
 }
 
 .selector-container span:hover {

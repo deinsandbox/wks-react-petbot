@@ -1,28 +1,10 @@
 :root {
-  --background-fallback: rgb(134, 223, 222);
-  --background-gradient-start: rgb(3, 133, 138);
-  --background-gradient-end: rgb(134, 223, 222);
+  --main-background: rgb(0, 0, 0);
 }
 
 body {
-  margin: 0;
-  font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  background: var(--background-fallback); /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    var(--background-gradient-start),
-    var(--background-gradient-end)
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    var(--background-gradient-start),
-    var(--background-gradient-end)
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: var(--main-background);
+  overflow: hidden;
 }
 
 code {
