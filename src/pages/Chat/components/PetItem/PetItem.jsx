@@ -20,14 +20,14 @@ const PetItem = ({ text, imagePath, reaction }) => {
         {!imagePath &&
           text.map((message, index) => {
             return (
-              <Fade Left>
-                <span key={index}> {message} </span>
+              <Fade Left key={index}>
+                <span> {message} </span>
               </Fade>
             );
           })}
         {imagePath && (
           <Fade Left>
-            <img src={imagePath} alt="alien"></img>
+            <img key="gif" src={imagePath} alt="alien"></img>
           </Fade>
         )}
       </div>

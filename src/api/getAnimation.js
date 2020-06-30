@@ -1,5 +1,5 @@
 const API_KEY = process.env.REACT_APP_GIPHY_KEY;
-const DOMAIN = "https://api.giphy.com/v1/gifs/random";
+const DOMAIN = "http://api.giphy.com/v1/gifs/random";
 const TAG = "alien";
 const RATING = "g";
 
