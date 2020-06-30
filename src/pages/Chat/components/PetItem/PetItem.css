@@ -43,6 +43,7 @@
   width: fit-content;
 }
 
+.pet-item-message img:first-of-type:before,
 .pet-item-message span:first-of-type:before {
   border-left: var(--pet-speech-size) solid transparent;
   border-right: var(--pet-speech-size) solid transparent;
