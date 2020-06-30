@@ -4,14 +4,18 @@ const TAG = "alien";
 const RATING = "g";
 
 export const getAnimation = async () => {
-  const apiUrl = `${DOMAIN}?api_key=${API_KEY}&tag=${TAG}&rating=${RATING}`;
-  const response = await fetch(apiUrl);
-  const { data, message } = await response.json();
+  try {
+    const apiUrl = `${DOMAIN}?api_key=${API_KEY}&tag=${TAG}&rating=${RATING}`;
+    const response = await fetch(apiUrl);
+    const { data, message } = await response.json();
 
-  if (message) {
+    if (message) {
+      return "";
+    }
+
+    const { url } = data.images.original;
+    return url;
+  } catch (error) {
     return "";
   }
-
-  const { url } = data.images.original;
-  return url;
 };
