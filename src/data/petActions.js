@@ -23,6 +23,8 @@ export const petQuestions = {
   1: "1️⃣ What are you doing?",
   2: "2️⃣ Could you send me a meme?",
   3: "3️⃣ Tell be about you",
+  x: "❌ Good bye",
+  //TODO: Goodbye
 };
 
 export const getQuestion = (value) => {

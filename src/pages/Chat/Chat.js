@@ -37,14 +37,12 @@ const Chat = ({ history }) => {
   function sendMessage(event) {
     event.preventDefault();
 
-    if (
-      openSelect ||
-      (message.text && message.text.length === 1 && !isNaN(message.text[0]))
-    ) {
+    if (openSelect || (message.text && message.text[0].length === 1)) {
       handleSelectedOption(message.text[0]);
-    } else {
-      setChat([...chat, message]);
+      return;
     }
+
+    setChat([...chat, message]);
   }
 
   //console.table(chat);
@@ -67,6 +65,11 @@ const Chat = ({ history }) => {
 
   function handleSelectedOption(value) {
     if (!value) {
+      return;
+    }
+
+    if (value.toLowerCase() === "x") {
+      history.goBack();
       return;
     }
 
