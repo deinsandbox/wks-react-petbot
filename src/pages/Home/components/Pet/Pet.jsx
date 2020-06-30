@@ -16,7 +16,7 @@ const Pet = ({ history, image }) => {
   };
 
   return (
-    <div onClick={handleOnClick} className="cat-container">
+    <div onClick={handleOnClick} className="pet-container">
       <Lottie options={defaultOptions} />
     </div>
   );
