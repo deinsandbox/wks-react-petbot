@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Chat.css";
 
 import { petImages } from "../../data/petImages";
@@ -11,6 +11,7 @@ import Select from "./components/Select/Select.jsx";
 import {
   errorChat,
   welcomeChat,
+  byeChat,
   petQuestions,
   getQuestion,
   getAnswer,
@@ -61,48 +62,70 @@ const Chat = ({ history }) => {
     }
   }
 
+  function byeResponse(question) {
+    const BYE_TIMER_IN_SECONDS = 5;
+
+    if (byeChat) {
+      setChat([...chat, question, byeChat]);
+      setMessage({ ...message, text: [""] });
+
+      setTimeout(() => {
+        history.goBack();
+      }, BYE_TIMER_IN_SECONDS * 1000);
+    }
+  }
+
   const [openSelect, setOpenSelect] = useState(false);
 
-  function handleSelectedOption(value) {
+  async function handleSelectedOption(value) {
     if (!value) {
       return;
     }
 
-    if (value.toLowerCase() === "x") {
-      history.goBack();
-      return;
-    }
-
     const question = getQuestion(value);
-    if (question) {
-      setChat([...chat, question]);
-    } else {
+    if (!question) {
       errorResponse();
       return;
     }
 
-    const answer = getAnswer(value);
+    if (value.toLowerCase() === "x") {
+      byeResponse(question);
+      return;
+    }
+
+    const answer = await getAnswer(value);
     if (answer) {
       setChat([...chat, question, answer]);
     }
     setMessage({ ...message, text: [""] });
+
+    scrollToBottom();
   }
 
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    const SCROLL_TIMER_IN_SECONDS = 0.6;
+    setTimeout(() => {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }, SCROLL_TIMER_IN_SECONDS * 1000);
+  };
+
   useEffect(() => {
-    const TIMER_FIRSTRESPONSE = 0.5;
-    const TIMER_OPENSELECT = 0.6;
+    const FIRST_RESPONSE_TIMER_IN_SECONDS = 0.5;
+    const OPEN_SELECT_TIMER_IN_SECONDS = 0.6;
 
     if (chat.length === 2) {
       setTimeout(() => {
         firstResponse(message.text);
-      }, TIMER_FIRSTRESPONSE * 1000);
+      }, FIRST_RESPONSE_TIMER_IN_SECONDS * 1000);
       setMessage({ ...message, text: [""] });
       setTimeout(() => {
         setOpenSelect(true);
-      }, TIMER_OPENSELECT * 1000);
+      }, OPEN_SELECT_TIMER_IN_SECONDS * 1000);
     }
 
-    //TODO: Automatic scroll
+    scrollToBottom();
   }, [chat]);
 
   return (
@@ -116,6 +139,7 @@ const Chat = ({ history }) => {
                   <PetItem
                     key={index}
                     text={message.text}
+                    imagePath={message.imagePath}
                     reaction={message.reaction ?? petImages.Talking}
                   />
                 );
@@ -129,6 +153,7 @@ const Chat = ({ history }) => {
                 handleSelectedOption={handleSelectedOption}
               />
             )}
+            <div ref={messagesEndRef} />
           </div>
           <div className="chatbot-chat-container-input">
             <InputChat

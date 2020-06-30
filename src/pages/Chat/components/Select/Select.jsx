@@ -9,7 +9,7 @@ const Select = ({ petQuestions, handleSelectedOption }) => {
         <div className="selector-container">
           {Object.entries(petQuestions).map(([key, value]) => {
             return (
-              <span onClick={(event) => handleSelectedOption(key)} key={key}>
+              <span onClick={() => handleSelectedOption(key)} key={key}>
                 {value}
               </span>
             );

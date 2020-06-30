@@ -4,7 +4,7 @@ import "./PetItem.css";
 
 import Lottie from "react-lottie";
 
-const PetItem = ({ text, reaction }) => {
+const PetItem = ({ text, imagePath, reaction }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -17,13 +17,19 @@ const PetItem = ({ text, reaction }) => {
         <Lottie options={defaultOptions} />
       </div>
       <div className="pet-item-message">
-        {text.map((msg, index) => {
-          return (
-            <Fade Left key={index}>
-              <span> {msg} </span>
-            </Fade>
-          );
-        })}
+        {!imagePath &&
+          text.map((message, index) => {
+            return (
+              <Fade Left>
+                <span key={index}> {message} </span>
+              </Fade>
+            );
+          })}
+        {imagePath && (
+          <Fade Left>
+            <img src={imagePath} alt="alien"></img>
+          </Fade>
+        )}
       </div>
     </div>
   );

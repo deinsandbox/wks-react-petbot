@@ -1,4 +1,5 @@
 import { petImages, getRandomPet } from "./petImages";
+import { getAnimation } from "../api/getAnimation";
 
 export const errorChat = {
   emitter: "pet",
@@ -19,16 +20,21 @@ export const welcomeChat = (name) => {
   return welcome;
 };
 
+export const byeChat = {
+  emitter: "pet",
+  text: ["Nice to know you", "Call me!"],
+  reaction: petImages.CallMe,
+};
+
 export const petQuestions = {
   1: "1️⃣ What are you doing?",
-  2: "2️⃣ Could you send me a meme?",
+  2: "2️⃣ Could you send me a gif?",
   3: "3️⃣ Tell be about you",
-  x: "❌ Good bye",
-  //TODO: Goodbye
+  x: "❌ Goodbye",
 };
 
 export const getQuestion = (value) => {
-  const text = petQuestions[value]?.slice(4);
+  const text = petQuestions[value].split(" ").slice(1).join(" ");
   if (text) {
     const question = { text: [text], emitter: "user" };
     return question;
@@ -92,21 +98,25 @@ const petAnswers = {
   ],
 };
 
-export const getAnswer = (value) => {
+export const getAnswer = async (value) => {
   let answer = {};
+  answer.emitter = "pet";
 
   if (value === "2") {
-    //TODO: return random gif
-    answer.text = ["Are you crazy?", "I'm not your meme dealer"];
+    const imagePath = await getAnimation();
+    if (imagePath) {
+      answer.imagePath = imagePath;
+    } else {
+      answer.text = ["Oops! Something went wrong!"];
+    }
     answer.reaction = getRandomPet();
   }
 
   const answers = petAnswers[value];
   if (answers) {
     const random = Math.floor(Math.random() * answers.length);
-    answer = answers[random];
+    answer = { ...answer, ...answers[random] };
   }
 
-  answer.emitter = "pet";
   return answer;
 };
