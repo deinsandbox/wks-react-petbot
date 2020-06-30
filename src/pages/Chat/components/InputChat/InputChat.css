@@ -39,7 +39,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 16px;
-  background: var(--button-chat-background);
+  background-color: var(--button-chat-background);
   border-radius: 50%;
   border: 1px solid var(--button-chat-border);
   box-shadow: 2px 2px 15px 0 rgba(0, 0, 0, 0.16);
