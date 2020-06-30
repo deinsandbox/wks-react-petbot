@@ -2,13 +2,13 @@ import React from "react";
 import "./Pet.css";
 
 import Lottie from "react-lottie";
-import { asyncRandomPet } from "../../../../data/petImages";
+import { getRandomPet } from "../../../../data/petImages";
 
 const Pet = ({ history, image }) => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: asyncRandomPet(),
+    animationData: getRandomPet(),
   };
 
   const handleOnClick = () => {

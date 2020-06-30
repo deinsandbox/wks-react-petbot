@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import "./PetItem.css";
 
 import Lottie from "react-lottie";
@@ -17,7 +18,11 @@ const PetItem = ({ text, reaction }) => {
       </div>
       <div className="pet-item-message">
         {text.map((msg, index) => {
-          return <span key={index}> {msg} </span>;
+          return (
+            <Fade Left key={index}>
+              <span> {msg} </span>
+            </Fade>
+          );
         })}
       </div>
     </div>

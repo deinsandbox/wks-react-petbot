@@ -1,4 +1,4 @@
-import React, { UseState, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Chat.css";
 
 import { petImages } from "../../data/petImages";
@@ -6,50 +6,101 @@ import { petImages } from "../../data/petImages";
 import PetItem from "./components/PetItem/PetItem.jsx";
 import UserItem from "./components/UserItem/UserItem.jsx";
 import InputChat from "./components/InputChat/InputChat.jsx";
+import Select from "./components/Select/Select.jsx";
+
+import {
+  errorChat,
+  welcomeChat,
+  petQuestions,
+  getQuestion,
+  getAnswer,
+} from "../../data/petActions";
 
 const Chat = ({ history }) => {
-  const [msg, setMsg] = useState({});
+  const [message, setMessage] = useState({});
+
+  function getMessage(value) {
+    setMessage({
+      emitter: "user",
+      text: [value],
+    });
+  }
 
   const [chat, setChat] = useState([
     {
-      id: 0,
       emitter: "pet",
-      text: ["My name is Jooey", "What's your name?"],
-    },
-    {
-      id: 1,
-      emitter: "user",
-      text: ["Welcome to earth", "My name is Camilo but just call me Equiman"],
-    },
-    {
-      id: 2,
-      emitter: "pet",
-      text: ["Glad to meet you!"],
-      reaction: petImages.Rocking,
-    },
-    {
-      id: 3,
-      emitter: "user",
-      text: ["Where are you from?"],
-    },
-    {
-      id: 2,
-      emitter: "pet",
-      text: ["I'm from another Galaxy far far away"],
-      reaction: petImages.RollingEyes,
-    },
-    {
-      id: 3,
-      emitter: "user",
-      text: ["Oh come on", "Are you from mars? Right?"],
-    },
-    {
-      id: 2,
-      emitter: "pet",
-      text: ["That's my home"],
-      reaction: petImages.Love,
+      text: ["Hi!", "What's your name?"],
+      reaction: petImages.Aww,
     },
   ]);
+
+  function sendMessage(event) {
+    event.preventDefault();
+
+    if (
+      openSelect ||
+      (message.text && message.text.length === 1 && !isNaN(message.text[0]))
+    ) {
+      handleSelectedOption(message.text[0]);
+    } else {
+      setChat([...chat, message]);
+    }
+  }
+
+  //console.table(chat);
+  //console.table(msg);
+
+  function firstResponse(name) {
+    if (welcomeChat) {
+      setChat([...chat, welcomeChat(name)]);
+    }
+  }
+
+  function errorResponse() {
+    if (errorChat) {
+      setChat([...chat, errorChat]);
+      setMessage({ ...message, text: [""] });
+    }
+  }
+
+  const [openSelect, setOpenSelect] = useState(false);
+
+  function handleSelectedOption(value) {
+    if (!value) {
+      return;
+    }
+
+    const question = getQuestion(value);
+    if (question) {
+      setChat([...chat, question]);
+    } else {
+      errorResponse();
+      return;
+    }
+
+    const answer = getAnswer(value);
+    if (answer) {
+      setChat([...chat, question, answer]);
+    }
+    setMessage({ ...message, text: [""] });
+  }
+
+  useEffect(() => {
+    const TIMER_FIRSTRESPONSE = 0.5;
+    const TIMER_OPENSELECT = 0.6;
+
+    if (chat.length === 2) {
+      setTimeout(() => {
+        firstResponse(message.text);
+      }, TIMER_FIRSTRESPONSE * 1000);
+      setMessage({ ...message, text: [""] });
+      setTimeout(() => {
+        setOpenSelect(true);
+      }, TIMER_OPENSELECT * 1000);
+    }
+
+    //TODO: Automatic scroll
+  }, [chat]);
 
   return (
     <div className="chatbot-chat-container">
@@ -69,9 +120,20 @@ const Chat = ({ history }) => {
                 return <UserItem key={index} text={message.text} />;
               }
             })}
+            {openSelect && (
+              <Select
+                petQuestions={petQuestions}
+                handleSelectedOption={handleSelectedOption}
+              />
+            )}
           </div>
           <div className="chatbot-chat-container-input">
-            <InputChat />
+            <InputChat
+              getMessage={getMessage}
+              sendMessage={sendMessage}
+              openSelect={openSelect}
+              text={[message.text]}
+            />
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import Fade from "react-reveal/Fade";
 import "./UserItem.css";
 
 import Lottie from "react-lottie";
@@ -15,7 +16,11 @@ const UserItem = ({ text }) => {
     <div className="user-item-container">
       <div className="user-item-message">
         {text.map((msg, index) => {
-          return <span key={index}> {msg} </span>;
+          return (
+            <Fade Right key={index}>
+              <span> {msg} </span>
+            </Fade>
+          );
         })}
       </div>
       <div className="user-item-avatar">
