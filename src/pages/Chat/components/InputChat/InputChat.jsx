@@ -9,6 +9,8 @@ const InputChat = ({ getMessage, sendMessage, openSelect, text }) => {
     >
       <input
         placeholder={openSelect ? "Write a number" : "Write your name"}
+        pattern={openSelect ? "[0-9]{1}|[Xx]{1}" : "[A-Za-z]+"}
+        title={openSelect ? "Only one number or an X" : "Only letters"}
         type="text"
         value={text}
         onChange={(event) => getMessage(event.target.value)}
