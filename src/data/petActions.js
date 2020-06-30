@@ -91,18 +91,18 @@ const petAnswers = {
 };
 
 export const getAnswer = (value) => {
-  const answer = {};
+  let answer = {};
 
   if (value === "2") {
     //TODO: return random gif
-    answer.text = ["Are you crazy?", "I'm not a meme dealer"];
+    answer.text = ["Are you crazy?", "I'm not your meme dealer"];
     answer.reaction = getRandomPet();
   }
 
   const answers = petAnswers[value];
   if (answers) {
     const random = Math.floor(Math.random() * answers.length);
-    const answer = answers[random];
+    answer = answers[random];
   }
 
   answer.emitter = "pet";
