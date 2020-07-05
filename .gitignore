@@ -2,22 +2,36 @@
 # Created by https://www.gitignore.io
 
 ### react ###
-.DS_*
 *.log
 logs
 **/*.backup.*
 **/*.back.*
-build
-.env
-
-node_modules
-bower_components
-
-*.sublime*
 
 psd
 thumb
 sketch
+
+# dependencies
+/node_modules
+bower_components
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_*
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
 
 ### Code ###
 .vscode/*
@@ -26,6 +40,8 @@ sketch
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+
+
 
 ### macOS ###
 # General
@@ -54,5 +70,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
 
 # End of https://www.toptal.com/developers/gitignore/api/react
